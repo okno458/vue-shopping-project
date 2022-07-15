@@ -1,0 +1,7 @@
+mock(模拟)数据:如果想mock数据,需要安装插件mock.js
+使用步骤：
+在项目中创建mock文件夹
+准备json数据(mock文件夹中创建json文件)需要格式化一下,不能留有空格,否则项目跑不起来
+把mock数据需要的图片放置到public文件夹中【public文件夹在打包的时候,会把相应的资源原封不动的打包到dist文件夹中】
+开始mock(虚拟数据),通过mockjs模块实现
+把mock文件在main.js中引入

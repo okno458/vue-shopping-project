@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lodash.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .aaa {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>我是计数器<span>0</span></h1>
+        <button>点我加1</button>
+    </div>
+    <!-- <div class="aaa">
+
+    </div> -->
+   <button class="btn">button1</button>
+   <button class="btn">button2</button>
+   <button class="btn">button3</button>
+   <button class="btn">button4</button>
+</body>
+</html>
+<script>
+
+    var lis = document.getElementsByClassName('btn')
+    for (var i = 0; i < lis.length; i++) {
+      (function (i) {
+        setTimeout(function(){
+          console.log(lis[i].innerHTML)
+       },1000)  
+      })(i)
+    }
+    //节流：在规定的间隔时间范围内不会重复触发回调，只有大于这个时间间隔才会触发回调，把频繁触发变为少量触发
+        let span = document.querySelector('span');
+        let button = document.querySelector('button');
+        let count = 0; 
+        //需求：在1秒之内，数字只能加1
+        //lodash的节流函数
+        button.onclick = _.throttle(function(){ 
+            //节流：目前的函数2秒只能执行一次，会给浏览器充裕的时间去解析
+            count++;
+            span.innerHTML = count;
+        },2000)
+        //防抖：用户操作很频繁，但是只会执行一次
+        //节流：用户操作很频繁，但是规定的时间只会执行一次，会把频繁的操作变为少量操作
+      
+        // var aaa = document.querySelector('.aaa');
+        // aaa.addEventListener('mousemove', function(e){
+        //     var x = e.pageX;
+        //     var y = e.pageY;
+        //     aaa.style.left = x - 100 + 'px';
+        //     aaa.style.top = y - 100 + 'px';
+        // })
+
+        // var obj = {
+        //     id:1,
+        //     pname: 'xiaomi',
+        //     price:1999,
+        //     num:2000,
+        //     name:{
+        //         name1:11111
+        //     },
+        //     color:['pink','red']
+        // }
+        // var o = {};
+       
+        // for (const key in obj) {
+        //    o[key] = obj[key];
+        // }
+        // console.log('o', o)
+        // var arr = [1,2,3,4,5,6,7,8,9,10];
+        // var a = new Date();
+        // var da = a.getFullYear()
+        
+        // function deepCopy(newObj,oldObj) {
+        //     for (let k in oldObj) {
+        //         var item = oldObj[k];
+        //         if(item instanceof Array) {
+        //             newObj[k] = [];
+        //             deepCopy(newObj[k],item);
+        //         }else if (item instanceof Object) {
+        //             newObj[k] = {};
+        //             deepCopy(newObj[k],item);
+        //         }else {
+        //             newObj[k] = item;
+        //         }
+        //     }
+        // }
+        // deepCopy(o,obj);
+        // var str = ''
+        // for (let i = 1; i <= 9; i++) {
+        //     for (let j = i; j <= 9; j++) {
+        //         str += '*'
+        //     }
+        //     str += '\n';
+        // }
+        // console.log(str);
+        // var sum = 0;
+        // for (let i = 1; i <= 100; i++) {
+        //     sum += i;
+        // }
+        // console.log(sum)
+        // var sum = 0;
+        // function plus(a,b) {
+        //    for (var i = a; i <= b; i++) {
+        //        sum += i;
+        //    }
+        //    console.log(sum)
+        // }
+        // plus(1,100)
+        // function fun() {
+        //     var sum = 10;
+        //     return function () {
+        //         console.log(sum)
+        //     }
+        // }
+        // fun()();
+
+</script>
